@@ -24,8 +24,8 @@ export const incompleteInput = [
 
 export const validInput=[...incompleteInput,"END"];
 
-export const sampleOutput = `
-DEPEND TELNET TCPIP NETCARD
+export const sampleOutput = 
+`DEPEND TELNET TCPIP NETCARD
 DEPEND TCPIP NETCARD
 DEPEND NETCARD TCPIP
 TCPIP depends on NETCARD, ignoring command
