@@ -1,4 +1,4 @@
-import {status} from "./consts";
+import { status } from './consts';
 
 export type Record = {
     components: Array<Component>;
