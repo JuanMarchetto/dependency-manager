@@ -1,4 +1,4 @@
-import { createComponentsManager } from '../index';
+import createComponentsManager from '../index';
 import { sampleOutput, validInput } from './testContants';
 
 describe('Check if componentsManager returns an obnjets', () => {

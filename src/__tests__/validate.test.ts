@@ -1,4 +1,4 @@
-import { validate } from '../validate';
+import validate from '../validate';
 import { errorMessage } from '../consts';
 import { incompleteInput, validInput } from './testContants';
 

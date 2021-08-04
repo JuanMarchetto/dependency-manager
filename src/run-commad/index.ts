@@ -1,7 +1,7 @@
-import { runDependCommand } from './run-depend-command';
-import { runListCommand } from './run-list-command';
-import { runRemoveCommand } from './run-remove-command';
-import { runInstallCommand } from './run-install-command';
+import runDependCommand from './run-depend-command';
+import runListCommand from './run-list-command';
+import runRemoveCommand from './run-remove-command';
+import runInstallCommand from './run-install-command';
 import { Record } from '../types';
 
 export const runCommand = (line:string, record:Record):Array<string> => {
