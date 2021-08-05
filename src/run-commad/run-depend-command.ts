@@ -16,7 +16,10 @@ const runDependCommand = (record: Record, splited: string[], line: string) => {
         `${circularDependency.name} depends on ${splited[1]}, ignoring command`,
       );
     } else {
-      record.components[foundIndex].dependencies = [...splited.slice(2)];
+      record.updateComponents({
+        ...record.components[foundIndex],
+        dependencies: [...splited.slice(2)],
+      });
     }
   } else {
     record.components.push({

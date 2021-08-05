@@ -1,5 +1,20 @@
+/* eslint-disable no-use-before-define */
 import { status } from '../consts';
 import { Record } from '../types';
+
+const removeComponent = (removeOutput: string[], name: string, record: Record, found: number) => {
+  removeOutput.push(`Removing ${name}`);
+  const dependencies = [...record.components[found].dependencies];
+  record.updateComponents({
+    ...record.components[found],
+    status: status.NOT_INSTALLED,
+  });
+  removeUnusedDependencies(
+    dependencies,
+    record,
+    removeOutput,
+  );
+};
 
 const removeUnusedDependencies = (
   dependencies: string[],
@@ -20,13 +35,7 @@ const removeUnusedDependencies = (
             && item.status !== status.NOT_INSTALLED,
         )
       ) {
-        removeOutput.push(`Removing ${dependency}`);
-        record.components[found].status = status.NOT_INSTALLED;
-        removeUnusedDependencies(
-          record.components[found].dependencies,
-          record,
-          removeOutput,
-        );
+        removeComponent(removeOutput, dependency, record, found);
       }
     }
   });
@@ -44,13 +53,7 @@ const runRemoveCommand = (line: string, record: Record, splited: string[]) => {
           && item.status !== status.NOT_INSTALLED,
       )
     ) {
-      removeOutput.push(`Removing ${splited[1]}`);
-      record.components[found].status = status.NOT_INSTALLED;
-      removeUnusedDependencies(
-        record.components[found].dependencies,
-        record,
-        removeOutput,
-      );
+      removeComponent(removeOutput, splited[1], record, found);
     } else {
       removeOutput.push(`${splited[1]} is still needed`);
     }

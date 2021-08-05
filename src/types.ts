@@ -7,5 +7,6 @@ export type Component = {
 }
 
 export type Record = {
-    components: Array<Component>;
+    components: Component[];
+    updateComponents(component: Component): void;
 }

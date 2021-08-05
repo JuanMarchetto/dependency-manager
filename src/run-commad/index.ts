@@ -5,7 +5,7 @@ import runInstallCommand from './run-install-command';
 import { Record } from '../types';
 
 const runCommand = (line:string, record:Record):Array<string> => {
-  const splited = line.split(' ').filter((word) => word !== ' ');
+  const splited = line.split(' ');
   switch (splited[0]) {
     case 'DEPEND':
       return runDependCommand(record, splited, line);

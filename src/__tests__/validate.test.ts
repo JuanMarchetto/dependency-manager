@@ -1,6 +1,6 @@
 import validate from '../validate';
 import { errorMessage } from '../consts';
-import { incompleteInput, validInput } from './testContants';
+import { incompleteInput, validInput } from './test-contants';
 
 describe('Ceck if validate propperly', () => {
   it("an Input that contains only 'END' should be returning the same imput", () => {

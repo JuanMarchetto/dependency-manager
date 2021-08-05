@@ -1,5 +1,5 @@
 {
-  "name": "components-manager",
+  "name": "dependency-manager",
   "version": "0.1.0",
   "description": "",
   "scripts": {
@@ -13,8 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "main": "./build/index.js",
-  "typings": "./types/components-manager.d.ts",
+  "main": "./src/index.js",
+  "typings": "./types/index.d.ts",
   "devDependencies": {
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.12",

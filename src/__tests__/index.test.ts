@@ -1,16 +1,14 @@
 import createComponentsManager from '../index';
-import { sampleOutput, validInput } from './testContants';
+import { sampleOutput, validInput } from './test-contants';
 
-describe('Check if componentsManager returns an obnjets', () => {
+describe('ComponentsManager should return "END" when the input just contains "END"', () => {
   it('should return an objets', () => {
     const componentsManager = createComponentsManager();
-    const output = componentsManager.process('END');
-    expect(output).toBe('END');
+    expect(componentsManager.process('END')).toBe('END');
   });
 
   it('Sample input should return the sample output', () => {
     const componentsManager = createComponentsManager();
-    const output = componentsManager.process(validInput.join('\n'));
-    expect(output).toBe(sampleOutput);
+    expect(componentsManager.process(validInput.join('\n'))).toBe(sampleOutput);
   });
 });

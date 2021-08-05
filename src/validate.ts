@@ -7,6 +7,6 @@ const linesStartWithCommand = (lines) => lines
 
 const isValid = (lines) => isValidEnd(lines) && linesStartWithCommand(lines);
 
-const validate = (lines: Array<string>): Array<string> => (isValid(lines) ? lines : [errorMessage]);
+const validate = (lines: Array<string>): Array<string> => (isValid(lines) ? lines.filter((word) => word !== ' ') : [errorMessage]);
 
 export default validate;
