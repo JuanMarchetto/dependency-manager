@@ -22,14 +22,15 @@ const runDependCommand = (record: Record, splited: string[], line: string) => {
       });
     }
   } else {
-    record.components.push({
+    record.updateComponents({
       name: splited[1],
       dependencies: splited.slice(2),
       status: status.NOT_INSTALLED,
     });
-    splited.slice(2).map((dependency) => record.components.push({
+    splited.slice(2).map((dependency) => record.updateComponents({
       name: dependency,
-      dependencies: [],
+      dependencies: record.components
+        .find((component) => component.name === dependency)?.dependencies ?? [],
       status: status.NOT_INSTALLED,
     }));
   }
