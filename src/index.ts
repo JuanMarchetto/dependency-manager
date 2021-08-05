@@ -7,8 +7,10 @@ const createComponentsManager = () => {
     components: [],
   };
 
+  const process = (input:string):string => processLines(validate(input.split('\n')), record).join('\n');
+
   return {
-    procces: (input:string):string => processLines(validate(input.split('\n')), record).join('\n'),
+    process,
   };
 };
 

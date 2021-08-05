@@ -1,4 +1,4 @@
-import { runCommand } from './run-commad';
+import runCommand from './run-commad';
 import { Record } from './types';
 
 const processLines = (lines:Array<string>, record: Record) => lines

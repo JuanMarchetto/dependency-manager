@@ -1,9 +1,9 @@
 import { status } from '../consts';
-import { Record } from '../types';
+import { Component } from '../types';
 
-const runListCommand = (record: Record): string[] => [
+const runListCommand = (components: Component[]): string[] => [
   'LIST',
-  ...record.components.filter((component) => component.status !== status.NOT_INSTALLED)
+  ...components.filter((component) => component.status !== status.NOT_INSTALLED)
     .map(({ name }) => name),
 ];
 

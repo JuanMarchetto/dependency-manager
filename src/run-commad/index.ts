@@ -4,13 +4,13 @@ import runRemoveCommand from './run-remove-command';
 import runInstallCommand from './run-install-command';
 import { Record } from '../types';
 
-export const runCommand = (line:string, record:Record):Array<string> => {
+const runCommand = (line:string, record:Record):Array<string> => {
   const splited = line.split(' ').filter((word) => word !== ' ');
   switch (splited[0]) {
     case 'DEPEND':
       return runDependCommand(record, splited, line);
     case 'LIST':
-      return runListCommand(record);
+      return runListCommand(record.components);
     case 'REMOVE':
       return runRemoveCommand(line, record, splited);
     case 'INSTALL':
@@ -19,3 +19,5 @@ export const runCommand = (line:string, record:Record):Array<string> => {
       return [line];
   }
 };
+
+export default runCommand;
